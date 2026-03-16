@@ -269,6 +269,74 @@
 
 
 
+
+
+
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="hero-tag">Information Portal</span>
+                    <h2>Common <span>Inquiries</span></h2>
+                    <p>Providing transparency into our methodologies, safety protocols, and institutional partnerships.
+                    </p>
+                </div>
+
+                <div class="faq-wrapper">
+                    <div class="faq-item animated-card">
+                        <button class="faq-question">
+                            <span>What is the standard timeline for genomic sequencing?</span>
+                            <i class="plus-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Our high-throughput sequencing protocols typically deliver comprehensive raw data within
+                                72 hours. Full bio-informatic analysis and clinical interpretation generally require an
+                                additional 5 to 7 business days, depending on the complexity of the genome.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item animated-card">
+                        <button class="faq-question">
+                            <span>How does BioTech ensure data privacy for institutional partners?</span>
+                            <i class="plus-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We utilize end-to-end quantum-resistant encryption and decentralized biological
+                                databases. Every sample is anonymized at the point of extraction, ensuring that
+                                intellectual property and patient identities remain protected throughout the research
+                                lifecycle.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item animated-card">
+                        <button class="faq-question">
+                            <span>Are your synthetic materials ecologically biodegradable?</span>
+                            <i class="plus-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes. Our "Synthesize-to-Soil" initiative ensures that all organic compounds developed in
+                                our labs are engineered to break down into non-toxic nutrients within 180 days of
+                                environmental exposure, meeting global sustainability standards.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item animated-card">
+                        <button class="faq-question">
+                            <span>How can academic institutions apply for research grants?</span>
+                            <i class="plus-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We accept quarterly proposals through our Global Partnership Portal. Institutions must
+                                demonstrate a focus on regenerative medicine or molecular sustainability to be
+                                considered for our $50M annual innovation fund.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
     </main>
 
 
@@ -339,6 +407,31 @@
     <script src="script.js"></script>
 
     <script>
+
+        // faq js
+
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const answer = faqItem.querySelector('.faq-answer');
+
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) {
+                        item.classList.remove('active');
+                        item.querySelector('.faq-answer').style.maxHeight = null;
+                    }
+                });
+
+                faqItem.classList.toggle('active');
+
+                if (faqItem.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                } else {
+                    answer.style.maxHeight = null;
+                }
+            });
+        });
+
 
 
         const metricsObserver = new IntersectionObserver((entries) => {

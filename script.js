@@ -118,21 +118,20 @@ observer.observe(section);
 
 // teams js
 
-const observerOptions = {
-    threshold: 0.2
-};
-
-const observer1 = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+const teamObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('appear');
+            // Staggered delay for each card
+            setTimeout(() => {
+                entry.target.classList.add('appear');
+            }, index * 150); 
+            teamObserver.unobserve(entry.target);
         }
     });
-}, observerOptions);
+}, { threshold: 0.2 });
 
-document.querySelectorAll('.animated-card').forEach((card, index) => {
-    card.style.transitionDelay = `${index * 0.15}s`;
-    observer1.observe(card);
+document.querySelectorAll('.team-card').forEach(card => {
+    teamObserver.observe(card);
 });
 
 
@@ -249,3 +248,13 @@ document.querySelectorAll('.faq-question').forEach(button => {
         }
     });
 });
+
+
+
+
+
+
+
+
+
+
