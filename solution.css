@@ -216,6 +216,19 @@
     background-color: var(--bg-subtle);
 }
 
+.sectors-section .section-header {
+    text-align: center;
+}
+
+.sectors-section .section-header h2 {
+    border: none;
+}
+
+.sectors-section .section-header h2 span {
+    color: var(--primary-bio-green);
+}
+
+
 .sectors-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -241,13 +254,22 @@
     box-shadow: 0 15px 30px rgba(49, 99, 20, 0.08);
 }
 
+.sector-card:hover .sector-icon{
+    background-color: var(--primary-dark);
+    color: var(--bg-main);
+}
+
+.sector-card:hover .sector-top h3{
+    color: var(--primary-light);
+}
+
 .sector-icon {
     font-size: 0.85rem;
     font-weight: 800;
     color: var(--primary-bio-green);
     margin-bottom: 25px;
     display: inline-block;
-    padding: 5px 12px;
+    padding: 12px 22px;
     border: 1px solid var(--primary-bio-green);
     border-radius: 4px;
 }
@@ -590,7 +612,7 @@
 .image-cta-section {
     position: relative;
     padding: 160px 0;
-    background-image: url('https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&q=80&w=2000');
+    background-image: url('./assets/who.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
