@@ -47,8 +47,8 @@
                 </div>
 
                 <div class="top-icons">
-                    <span class="bell">🔔</span>
-                    <div class="profile">profile</div>
+                    <span id="userEmail"></span>
+                    <div class="profile"><a href="./index.html">Exit</a></div>
                 </div>
 
             </div>
@@ -121,20 +121,35 @@
 
 
     <script>
-        const menuBtn = document.getElementById("menuBtn");
-        const sidebar = document.getElementById("sidebar");
+// Get email from localStorage
+        const email = localStorage.getItem("userEmail");
 
-        // Toggle sidebar when clicking hamburger
-        menuBtn.addEventListener("click", function (e) {
-            e.stopPropagation(); // important
-            sidebar.classList.toggle("active");
-        });
+        // Display in UI
+        if (email) {
+            document.getElementById("userEmail").textContent = email;
+        } else {
+            document.getElementById("userEmail").textContent = "Guest";
+        }
 
-        // Close sidebar when clicking outside
-        document.addEventListener("click", function (e) {
-            if (!sidebar.contains(e.target) && !menuBtn.contains(e.target)) {
-                sidebar.classList.remove("active");
-            }
+
+
+        const menuLinks = document.querySelectorAll(".menu a");
+        const sections = document.querySelectorAll(".section");
+
+        menuLinks.forEach(link => {
+            link.addEventListener("click", function () {
+
+                // remove active class
+                menuLinks.forEach(l => l.classList.remove("active"));
+                this.classList.add("active");
+
+                // hide all sections
+                sections.forEach(sec => sec.style.display = "none");
+
+                // show selected section
+                const target = this.getAttribute("data-target");
+                document.getElementById(target).style.display = "block";
+            });
         });
     </script>
 

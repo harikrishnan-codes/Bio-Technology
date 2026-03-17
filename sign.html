@@ -109,7 +109,7 @@
                         <label>Email Address</label>
                         <div class="input-field">
                             <i class='bx bx-envelope'></i>
-                            <input type="email" required>
+                            <input type="email" id="email" required>
                         </div>
                     </div>
 
@@ -159,6 +159,29 @@
     <script>
 
 
+        document.getElementById('login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById("email").value;
+
+            // store email
+            localStorage.setItem("userEmail", email);
+
+            const storedRole = localStorage.getItem('selectedRole');
+
+            if (storedRole === 'reception') {
+                window.location.href = "reception.html";
+            } else if (storedRole === 'patient') {
+                window.location.href = "patient.html";
+            } else {
+                window.location.href = "404.html";
+            }
+        });
+
+
+
+
+
         // 1. Toggle Sections
         function showSection(sectionId) {
             const sections = ['signup-section', 'login-section', 'forgot-section'];
@@ -188,7 +211,7 @@
         document.getElementById('signup-form').addEventListener('submit', (e) => {
             e.preventDefault();
             const role = document.getElementById('user-role').value;
-             localStorage.setItem('selectedRole', role);
+            localStorage.setItem('selectedRole', role);
             alert("Account Created! Redirecting to Login...");
             showSection('login-section');
         });

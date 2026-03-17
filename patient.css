@@ -133,6 +133,7 @@ body {
     text-decoration: none;
     border-radius: 8px;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .menu a:hover {
@@ -178,12 +179,18 @@ body {
 
 .profile {
     background: var(--accent-teal);
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.profile a{
+    text-decoration: none;
+    color: var(--bg-main);
+    font-weight: bold;
 }
 
 /* Alert */

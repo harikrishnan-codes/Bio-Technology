@@ -1,146 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>Reception Dashboard</title>
-<link rel="stylesheet" href="reception.css">
+    <meta charset="UTF-8">
+    <title>Reception Dashboard</title>
+    <link rel="stylesheet" href="reception.css">
 </head>
 
 <body>
 
-<div class="dashboard">
+    <div class="dashboard">
 
-    <!-- Sidebar -->
-    <aside class="sidebar" id="sidebar">
-        <h2 class="logo">🏥 MediDesk</h2>
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <h2 class="logo">🏥 MediDesk</h2>
 
-        <div class="patient-box">
-            <p>RECEPTION ID</p>
-            <h3>RC-1023</h3>
-        </div>
+            <div class="patient-box">
+                <p>RECEPTION ID</p>
+                <h3>RC-1023</h3>
+            </div>
 
-        <nav class="menu">
-            <a class="active">Dashboard</a>
-            <a>Appointments</a>
-            <a>Patient Check-In</a>
-            <a>Billing</a>
-            <a>Reports</a>
-        </nav>
-    </aside>
+            <nav class="menu">
+                <a class="active">Dashboard</a>
+                <a data-target="alert">Appointments</a>
+                <a data-target="card">Patient Check-In</a>
+                <a data-target="patient">Billing</a>
+                <a data-target="table">Reports</a>
+            </nav>
+        </aside>
 
-    <!-- Main -->
-    <main class="main">
+        <!-- Main -->
+        <main class="main">
 
-        <!-- Header -->
-        <div class="topbar">
-            <div class="left-top">
-                <div class="hamburger" id="menuBtn">☰</div>
-                <div>
-                    <h1>Hello, Reception</h1>
-                    <p>Manage patients & appointments</p>
+            <!-- Header -->
+            <div class="topbar">
+                <div class="left-top">
+                    <div class="hamburger" id="menuBtn">☰</div>
+                    <div>
+                        <h1>Hello, Reception</h1>
+                        <p>Manage patients & appointments</p>
+                    </div>
+                </div>
+
+                <div class="top-icons">
+                    <span id="userEmail"></span>
+                    <div class="profile"><a href="./index.html">Exit</a></div>
                 </div>
             </div>
 
-            <div class="top-icons">
-                <span>🔔</span>
-                <div class="profile">R</div>
-            </div>
-        </div>
-
-        <!-- Alert -->
-        <div class="alert-box">
-            <h4>New Walk-in Patient</h4>
-            <p>Patient waiting for registration at front desk.</p>
-        </div>
-
-        <!-- Cards -->
-        <div class="card-row">
-
-            <div class="card">
-                <h3>Today's Appointments</h3>
-                <p><strong>42</strong> Scheduled</p>
-                <p><strong>30</strong> Completed</p>
-                <p><strong>12</strong> Pending</p>
+            <!-- Alert -->
+            <div class="alert-box section" id="alert">
+                <h4>New Walk-in Patient</h4>
+                <p>Patient waiting for registration at front desk.</p>
             </div>
 
-            <div class="card">
-                <h3>Walk-in Queue</h3>
-                <p>🧑‍🤝‍🧑 Waiting: <strong>8</strong></p>
-                <p>⏳ Avg Time: <strong>15 mins</strong></p>
+            <!-- Cards -->
+            <div class="card-row section" id="card">
+
+                <div class="card">
+                    <h3>Today's Appointments</h3>
+                    <p><strong>42</strong> Scheduled</p>
+                    <p><strong>30</strong> Completed</p>
+                    <p><strong>12</strong> Pending</p>
+                </div>
+
+                <div class="card">
+                    <h3>Walk-in Queue</h3>
+                    <p>🧑‍🤝‍🧑 Waiting: <strong>8</strong></p>
+                    <p>⏳ Avg Time: <strong>15 mins</strong></p>
+                </div>
+
             </div>
 
-        </div>
+            <!-- Check-in Status -->
+            <div class="card section" id="patient">
+                <h3>Patient Check-In Flow</h3>
 
-        <!-- Check-in Status -->
-        <div class="card">
-            <h3>Patient Check-In Flow</h3>
+                <div class="pipeline">
+                    <div class="step done">Arrival</div>
+                    <div class="line"></div>
 
-            <div class="pipeline">
-                <div class="step done">Arrival</div>
-                <div class="line"></div>
+                    <div class="step done">Registration</div>
+                    <div class="line"></div>
 
-                <div class="step done">Registration</div>
-                <div class="line"></div>
+                    <div class="step active">Waiting</div>
+                    <div class="line"></div>
 
-                <div class="step active">Waiting</div>
-                <div class="line"></div>
+                    <div class="step">Consultation</div>
+                    <div class="line"></div>
 
-                <div class="step">Consultation</div>
-                <div class="line"></div>
-
-                <div class="step">Billing</div>
+                    <div class="step">Billing</div>
+                </div>
             </div>
-        </div>
 
-        <!-- Table -->
-        <div class="table-card">
-            <h3>Recent Patients</h3>
+            <!-- Table -->
+            <div class="table-card section" id="table">
+                <h3>Recent Patients</h3>
 
-            <table>
-                <tr>
-                    <th>Name</th>
-                    <th>Doctor</th>
-                    <th>Time</th>
-                    <th>Status</th>
-                </tr>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Doctor</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                    </tr>
 
-                <tr>
-                    <td>John Doe</td>
-                    <td>Dr. Smith</td>
-                    <td>10:30 AM</td>
-                    <td class="success">Checked-In</td>
-                </tr>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>Dr. Smith</td>
+                        <td>10:30 AM</td>
+                        <td class="success">Checked-In</td>
+                    </tr>
 
-                <tr>
-                    <td>Mary Jane</td>
-                    <td>Dr. Kumar</td>
-                    <td>11:00 AM</td>
-                    <td class="warning">Waiting</td>
-                </tr>
+                    <tr>
+                        <td>Mary Jane</td>
+                        <td>Dr. Kumar</td>
+                        <td>11:00 AM</td>
+                        <td class="warning">Waiting</td>
+                    </tr>
 
-            </table>
-        </div>
+                </table>
+            </div>
 
-    </main>
+        </main>
 
-</div>
+    </div>
 
-<!-- JS -->
-<script>
-const menuBtn = document.getElementById("menuBtn");
-const sidebar = document.getElementById("sidebar");
+    <!-- JS -->
+    <script>
 
-menuBtn.addEventListener("click", function (e) {
-    e.stopPropagation();
-    sidebar.classList.toggle("active");
-});
+        // Get email from localStorage
+        const email = localStorage.getItem("userEmail");
 
-document.addEventListener("click", function (e) {
-    if (!sidebar.contains(e.target) && !menuBtn.contains(e.target)) {
-        sidebar.classList.remove("active");
-    }
-});
-</script>
+        // Display in UI
+        if (email) {
+            document.getElementById("userEmail").textContent = email;
+        } else {
+            document.getElementById("userEmail").textContent = "Guest";
+        }
+
+
+
+
+
+
+
+        const menuLinks = document.querySelectorAll(".menu a");
+        const sections = document.querySelectorAll(".section");
+
+        menuLinks.forEach(link => {
+            link.addEventListener("click", function () {
+
+                // remove active class
+                menuLinks.forEach(l => l.classList.remove("active"));
+                this.classList.add("active");
+
+                // hide all sections
+                sections.forEach(sec => sec.style.display = "none");
+
+                // show selected section
+                const target = this.getAttribute("data-target");
+                document.getElementById(target).style.display = "block";
+            });
+        });
+    </script>
 
 </body>
+
 </html>
