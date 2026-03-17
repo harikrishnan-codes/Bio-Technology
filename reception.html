@@ -1,175 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bio Technology</title>
-    <link rel="icon" href="./assets/bg remove.webp">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="reception.css">
-    <link rel="stylesheet" href="./root.css">
-
-    <!-- material icon -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- font awesome icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- aos animations -->
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Reception Dashboard</title>
+<link rel="stylesheet" href="reception.css">
 </head>
 
 <body>
 
+<div class="dashboard">
 
-    <div class="dashboard-wrapper">
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-header">
-                <div class="logo-hex">
-                    <i class='bx bx-dna'></i>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <h2 class="logo">🏥 MediDesk</h2>
+
+        <div class="patient-box">
+            <p>RECEPTION ID</p>
+            <h3>RC-1023</h3>
+        </div>
+
+        <nav class="menu">
+            <a class="active">Dashboard</a>
+            <a>Appointments</a>
+            <a>Patient Check-In</a>
+            <a>Billing</a>
+            <a>Reports</a>
+        </nav>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+
+        <!-- Header -->
+        <div class="topbar">
+            <div class="left-top">
+                <div class="hamburger" id="menuBtn">☰</div>
+                <div>
+                    <h1>Hello, Reception</h1>
+                    <p>Manage patients & appointments</p>
                 </div>
-                <h3>BioTech Hub</h3>
             </div>
 
-            <nav class="sidebar-nav">
-                <a href="#" class="nav-link active" data-target="overview">
-                    <i class='bx bx-grid-alt'></i> <span>Overview</span>
-                </a>
-                <a href="#" class="nav-link" data-target="appointments">
-                    <i class='bx bx-calendar'></i> <span>Appointments</span>
-                </a>
-                <a href="#" class="nav-link" data-target="patients">
-                    <i class='bx bx-user-voice'></i> <span>Patient Check-in</span>
-                </a>
-                <a href="#" class="nav-link" data-target="records">
-                    <i class='bx bx-folder-open'></i> <span>Lab Records</span>
-                </a>
-            </nav>
-
-            <div class="sidebar-footer">
-                <a href="index.html"><i class='bx bx-log-out'></i> <span>Logout</span></a>
+            <div class="top-icons">
+                <span>🔔</span>
+                <div class="profile">R</div>
             </div>
-        </aside>
+        </div>
 
-        <main class="main-content">
-            <header class="top-bar">
-                <div class="menu-toggle" id="mobile-toggle">
-                    <i class='bx bx-menu-alt-left'></i>
-                </div>
-                <div class="user-profile">
-                    <span>Reception Terminal 01</span>
-                    <div class="status-dot"></div>
-                </div>
-            </header>
+        <!-- Alert -->
+        <div class="alert-box">
+            <h4>New Walk-in Patient</h4>
+            <p>Patient waiting for registration at front desk.</p>
+        </div>
 
-            <section class="content-view active" id="overview">
-                <div class="view-header">
-                    <h2>Reception <span>Overview</span></h2>
-                    <p>Real-time laboratory traffic and check-in status.</p>
-                </div>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <h3>24</h3>
-                        <p>Today's Appointments</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>12</h3>
-                        <p>Active Lab Sessions</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>05</h3>
-                        <p>Pending Results</p>
-                    </div>
-                </div>
-            </section>
+        <!-- Cards -->
+        <div class="card-row">
 
-            <section class="content-view" id="appointments">
-                <h2>Appointment <span>Scheduler</span></h2>
-                <div class="placeholder-box">Loading Calendar Stream...</div>
-            </section>
+            <div class="card">
+                <h3>Today's Appointments</h3>
+                <p><strong>42</strong> Scheduled</p>
+                <p><strong>30</strong> Completed</p>
+                <p><strong>12</strong> Pending</p>
+            </div>
 
-            <section class="content-view" id="patients">
-                <h2>Patient <span>Check-in</span></h2>
-                <div class="placeholder-box">Awaiting RFID Scan...</div>
-            </section>
+            <div class="card">
+                <h3>Walk-in Queue</h3>
+                <p>🧑‍🤝‍🧑 Waiting: <strong>8</strong></p>
+                <p>⏳ Avg Time: <strong>15 mins</strong></p>
+            </div>
 
-            <section class="content-view" id="records">
-                <h2>Secure <span>Lab Records</span></h2>
-                <div class="placeholder-box">Database Connection: Encrypted</div>
-            </section>
-        </main>
-    </div>
+        </div>
 
+        <!-- Check-in Status -->
+        <div class="card">
+            <h3>Patient Check-In Flow</h3>
 
-    <script src="./script.js"></script>
+            <div class="pipeline">
+                <div class="step done">Arrival</div>
+                <div class="line"></div>
 
-    <script>
+                <div class="step done">Registration</div>
+                <div class="line"></div>
 
-        document.addEventListener('DOMContentLoaded', () => {
-            // 1. Navigation Logic (Single Page Section Switching)
-            const navLinks = document.querySelectorAll('.nav-link');
-            const sections = document.querySelectorAll('.content-view');
+                <div class="step active">Waiting</div>
+                <div class="line"></div>
 
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
+                <div class="step">Consultation</div>
+                <div class="line"></div>
 
-                    // Remove active classes
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    sections.forEach(s => s.classList.remove('active'));
+                <div class="step">Billing</div>
+            </div>
+        </div>
 
-                    // Add active to clicked link
-                    link.classList.add('active');
+        <!-- Table -->
+        <div class="table-card">
+            <h3>Recent Patients</h3>
 
-                    // Show corresponding section
-                    const target = link.getAttribute('data-target');
-                    document.getElementById(target).classList.add('active');
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Doctor</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                </tr>
 
-                    // Close sidebar on mobile after clicking
-                    if (window.innerWidth <= 992) {
-                        document.getElementById('sidebar').classList.remove('mobile-active');
-                    }
-                });
-            });
+                <tr>
+                    <td>John Doe</td>
+                    <td>Dr. Smith</td>
+                    <td>10:30 AM</td>
+                    <td class="success">Checked-In</td>
+                </tr>
 
-            // 2. Hamburger Mobile Toggle
-            const toggle = document.getElementById('mobile-toggle');
-            const sidebar = document.getElementById('sidebar');
+                <tr>
+                    <td>Mary Jane</td>
+                    <td>Dr. Kumar</td>
+                    <td>11:00 AM</td>
+                    <td class="warning">Waiting</td>
+                </tr>
 
-            toggle.addEventListener('click', () => {
-                sidebar.classList.toggle('mobile-active');
-            });
+            </table>
+        </div>
 
-            // 3. Optional: Hover logic to preview (only for desktop)
-            navLinks.forEach(link => {
-                link.addEventListener('mouseenter', () => {
-                    if (window.innerWidth > 992) {
-                        // You could add a subtle indicator here if needed
-                    }
-                });
-            });
-        });
+    </main>
 
-    </script>
+</div>
 
+<!-- JS -->
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const sidebar = document.getElementById("sidebar");
 
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+menuBtn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    sidebar.classList.toggle("active");
+});
 
-    <script>
-        AOS.init({
-            duration: 900,
-            easing: 'ease-in-out',
-            once: true,
-        });
-
-        // data-aos="fade-up"
-        // fade-up, fade-down, fade-left, fade-right, zoom-in,	slide-up, flip-left	
-
-    </script>
-
-
+document.addEventListener("click", function (e) {
+    if (!sidebar.contains(e.target) && !menuBtn.contains(e.target)) {
+        sidebar.classList.remove("active");
+    }
+});
+</script>
 
 </body>
-
 </html>

@@ -24,11 +24,8 @@
 
     <div class="auth-wrapper">
         <div class="auth-container">
-            <div class="auth-logo">
-                <div class="logo-circle">
-                    <i class='bx bx-dna'></i>
-                </div>
-            </div>
+
+            <!-- signup section -->
 
             <div id="signup-section" class="auth-box">
                 <h2>Create Your Account</h2>
@@ -100,6 +97,9 @@
                         onclick="showSection('login-section')">Login</a></p>
             </div>
 
+
+            <!-- login section -->
+
             <div id="login-section" class="auth-box" style="display: none;">
                 <h2>Welcome Back</h2>
                 <p class="subtitle">Access your clinical dashboard</p>
@@ -132,11 +132,14 @@
                 </p>
             </div>
 
+
+            <!-- forgot password section -->
+
             <div id="forgot-section" class="auth-box" style="display: none;">
                 <h2>Reset Password</h2>
                 <p class="subtitle">Enter your email to receive a reset sequence</p>
 
-                <form id="forgot-form">
+                <form id="forgot-form" action="./404.html" method="GET">
                     <div class="input-group">
                         <label>Email Address</label>
                         <div class="input-field">
@@ -154,6 +157,7 @@
     <script src="script.js"></script>
 
     <script>
+
 
         // 1. Toggle Sections
         function showSection(sectionId) {
@@ -184,8 +188,7 @@
         document.getElementById('signup-form').addEventListener('submit', (e) => {
             e.preventDefault();
             const role = document.getElementById('user-role').value;
-            // Store role in local storage for login redirection
-            localStorage.setItem('selectedRole', role);
+             localStorage.setItem('selectedRole', role);
             alert("Account Created! Redirecting to Login...");
             showSection('login-section');
         });
@@ -200,7 +203,6 @@
             } else if (storedRole === 'patient') {
                 window.location.href = "patient.html";
             } else {
-                // Fallback or 404 if role not found
                 window.location.href = "404.html";
             }
         });
