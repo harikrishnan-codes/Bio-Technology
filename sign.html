@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioTech Labs - Authentication</title>
+    <link rel="stylesheet" href="sign.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="./assets/bg remove.webp">
+
+    <link rel="stylesheet" href="./root.css">
+
+    <!-- material icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- font awesome icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- aos animations -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="auth-wrapper">
+        <div class="auth-container">
+            <div class="auth-logo">
+                <div class="logo-circle">
+                    <i class='bx bx-dna'></i>
+                </div>
+            </div>
+
+            <div id="signup-section" class="auth-box">
+                <h2>Create Your Account</h2>
+                <p class="subtitle">Join BioTech Labs and start your research journey</p>
+
+                <form id="signup-form">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>Full Name</label>
+                            <div class="input-field">
+                                <i class='bx bx-user'></i>
+                                <input type="text" id="signup-name" placeholder="Dr. Jane Smith" required>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Role</label>
+                            <div class="input-field">
+                                <select id="user-role" required>
+                                    <option value="reception">Reception</option>
+                                    <option value="patient">Patient</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <div class="input-field">
+                            <i class='bx bx-envelope'></i>
+                            <input type="email" placeholder="you@institution.edu" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Organization / Institution</label>
+                        <div class="input-field">
+                            <i class='bx bx-building-house'></i>
+                            <input type="text" placeholder="MIT, Stanford, etc.">
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>Password</label>
+                            <div class="input-field">
+                                <i class='bx bx-lock-alt'></i>
+                                <input type="password" class="password-input" placeholder="••••••••" required>
+                                <i class='bx bx-hide toggle-password'></i>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Confirm Password</label>
+                            <div class="input-field">
+                                <i class='bx bx-check-shield'></i>
+                                <input type="password" placeholder="••••••••" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy
+                                Policy</a></label>
+                    </div>
+
+                    <button type="submit" class="btn-auth">Create Account</button>
+                </form>
+                <p class="switch-text">Already have an account? <a href="#"
+                        onclick="showSection('login-section')">Login</a></p>
+            </div>
+
+            <div id="login-section" class="auth-box" style="display: none;">
+                <h2>Welcome Back</h2>
+                <p class="subtitle">Access your clinical dashboard</p>
+
+                <form id="login-form">
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <div class="input-field">
+                            <i class='bx bx-envelope'></i>
+                            <input type="email" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Password</label>
+                        <div class="input-field">
+                            <i class='bx bx-lock-alt'></i>
+                            <input type="password" class="password-input" required>
+                            <i class='bx bx-hide toggle-password'></i>
+                        </div>
+                    </div>
+
+                    <div class="forgot-link">
+                        <a href="#" onclick="showSection('forgot-section')">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="btn-auth">Login</button>
+                </form>
+                <p class="switch-text">New here? <a href="#" onclick="showSection('signup-section')">Create Account</a>
+                </p>
+            </div>
+
+            <div id="forgot-section" class="auth-box" style="display: none;">
+                <h2>Reset Password</h2>
+                <p class="subtitle">Enter your email to receive a reset sequence</p>
+
+                <form id="forgot-form">
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <div class="input-field">
+                            <i class='bx bx-envelope'></i>
+                            <input type="email" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-auth">Send Reset Link</button>
+                </form>
+                <p class="switch-text"><a href="#" onclick="showSection('login-section')">Back to Login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <script>
+
+        // 1. Toggle Sections
+        function showSection(sectionId) {
+            const sections = ['signup-section', 'login-section', 'forgot-section'];
+            sections.forEach(id => {
+                document.getElementById(id).style.display = (id === sectionId) ? 'block' : 'none';
+            });
+        }
+
+        // 2. Name Validation (Alphabets only)
+        const nameInput = document.getElementById('signup-name');
+        nameInput.addEventListener('input', (e) => {
+            e.target.value = e.target.value.replace(/[^a-zA-Z\s]/g, '');
+        });
+
+        // 3. Password Eye Toggle
+        document.querySelectorAll('.toggle-password').forEach(toggle => {
+            toggle.addEventListener('click', function () {
+                const passwordInput = this.previousElementSibling;
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                this.classList.toggle('bx-show');
+                this.classList.toggle('bx-hide');
+            });
+        });
+
+        // 4. Signup Logic
+        document.getElementById('signup-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const role = document.getElementById('user-role').value;
+            // Store role in local storage for login redirection
+            localStorage.setItem('selectedRole', role);
+            alert("Account Created! Redirecting to Login...");
+            showSection('login-section');
+        });
+
+        // 5. Login Redirection Logic
+        document.getElementById('login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const storedRole = localStorage.getItem('selectedRole');
+
+            if (storedRole === 'reception') {
+                window.location.href = "reception.html";
+            } else if (storedRole === 'patient') {
+                window.location.href = "patient.html";
+            } else {
+                // Fallback or 404 if role not found
+                window.location.href = "404.html";
+            }
+        });
+
+    </script>
+
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        AOS.init({
+            duration: 900,
+            easing: 'ease-in-out',
+            once: true,
+        });
+
+        // data-aos="fade-up"
+        // fade-up, fade-down, fade-left, fade-right, zoom-in,	slide-up, flip-left	
+
+    </script>
+
+
+</body>
+
+</html>

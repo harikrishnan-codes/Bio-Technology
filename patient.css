@@ -1,0 +1,44 @@
+/* Sidebar and Layout Reuse the Reception CSS logic */
+.dashboard-wrapper { display: flex; min-height: 100vh; background: var(--bg-subtle); }
+
+.sidebar {
+    width: 280px;
+    background: var(--primary-dark);
+    color: white;
+    position: fixed;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.main-content { flex: 1; margin-left: 280px; padding: 40px; }
+
+/* Table Styling */
+.table-container { background: white; border-radius: 15px; padding: 20px; border: 1px solid #eee; }
+.biotech-table { width: 100%; border-collapse: collapse; text-align: left; }
+.biotech-table th { padding: 15px; border-bottom: 2px solid var(--bg-subtle); color: var(--primary-bio-green); font-size: 0.8rem; text-transform: uppercase; }
+.biotech-table td { padding: 15px; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+
+/* Badges */
+.badge { padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; }
+.completed { background: rgba(49, 99, 20, 0.1); color: var(--primary-bio-green); }
+.pending { background: #fff8e1; color: #f57c00; }
+
+/* Buttons */
+.btn-sm { padding: 8px 16px; background: var(--primary-bio-green); color: white; border-radius: 6px; text-decoration: none; font-size: 0.8rem; }
+.btn-sm.gold { background: var(--dna-helix-gold); color: var(--primary-dark); }
+
+/* Timeline */
+.timeline { border-left: 2px solid var(--primary-bio-green); margin-top: 40px; padding-left: 30px; }
+.timeline-item { position: relative; margin-bottom: 30px; }
+.timeline-item::before { content: ''; position: absolute; left: -37px; top: 5px; width: 12px; height: 12px; background: var(--dna-helix-gold); border-radius: 50%; }
+.year { font-weight: 800; color: var(--primary-bio-green); display: block; }
+
+/* Mobile Hamburger Menu */
+@media (max-width: 992px) {
+    .sidebar { transform: translateX(-100%); transition: transform 0.4s ease; }
+    .sidebar.mobile-active { transform: translateX(0); }
+    .main-content { margin-left: 0; }
+    .menu-toggle { display: block; }
+}

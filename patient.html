@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio Technology</title>
+    <link rel="icon" href="./assets/bg remove.webp">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="patient.css">
+    <link rel="stylesheet" href="./root.css">
+
+    <!-- material icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- font awesome icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- aos animations -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <div class="dashboard-wrapper">
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-hex"><i class='bx bx-dna'></i></div>
+            <h3>Patient Portal</h3>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-link active" data-target="health-summary">
+                <i class='bx bx-pulse'></i> <span>Health Summary</span>
+            </a>
+            <a href="#" class="nav-link" data-target="lab-results">
+                <i class='bx bx-file-find'></i> <span>Genomic Reports</span>
+            </a>
+            <a href="#" class="nav-link" data-target="appointments">
+                <i class='bx bx-time-five'></i> <span>Clinical Sessions</span>
+            </a>
+            <a href="#" class="nav-link" data-target="history">
+                <i class='bx bx-history'></i> <span>Medical History</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="auth.html"><i class='bx bx-log-out-circle'></i> <span>Logout</span></a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="menu-toggle" id="mobile-toggle">
+                <i class='bx bx-menu-alt-left'></i>
+            </div>
+            <div class="profile-meta">
+                <div class="user-text">
+                    <strong>Patient #882-J</strong>
+                    <span>Bio-Security Level: 02</span>
+                </div>
+                <div class="user-avatar">JP</div>
+            </div>
+        </header>
+
+        <section class="content-view active" id="health-summary">
+            <div class="view-header">
+                <h2>Bio-Metric <span>Dashboard</span></h2>
+                <p>Your synchronized physiological data stream.</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="label">Cellular Stability</span>
+                    <h3>98.2%</h3>
+                    <div class="m-track"><div class="m-fill" style="width: 98%;"></div></div>
+                </div>
+                <div class="stat-card">
+                    <span class="label">Metabolic Rate</span>
+                    <h3>Normal</h3>
+                    <div class="m-track"><div class="m-fill" style="width: 70%;"></div></div>
+                </div>
+                <div class="stat-card">
+                    <span class="label">Active Trials</span>
+                    <h3>03</h3>
+                    <p>Next phase: April 12</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-view" id="lab-results">
+            <div class="view-header">
+                <h2>Lab <span>Reports</span></h2>
+            </div>
+            <div class="table-container">
+                <table class="biotech-table">
+                    <thead>
+                        <tr>
+                            <th>Test Name</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>DNA Sequencing Hub-01</td>
+                            <td>March 12, 2026</td>
+                            <td><span class="badge completed">Completed</span></td>
+                            <td><a href="#" class="btn-sm">Download</a></td>
+                        </tr>
+                        <tr>
+                            <td>Molecular Stability Test</td>
+                            <td>March 05, 2026</td>
+                            <td><span class="badge completed">Completed</span></td>
+                            <td><a href="#" class="btn-sm">Download</a></td>
+                        </tr>
+                        <tr>
+                            <td>Blood Polymer Analysis</td>
+                            <td>Pending</td>
+                            <td><span class="badge pending">Processing</span></td>
+                            <td><i class='bx bx-lock-alt'></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="content-view" id="appointments">
+            <div class="view-header">
+                <h2>Clinical <span>Sessions</span></h2>
+            </div>
+            <div class="appointment-list">
+                <div class="apt-card">
+                    <div class="apt-date">MAR 24</div>
+                    <div class="apt-details">
+                        <h4>Annual Bio-Scan</h4>
+                        <p>Zürich HQ - Lab 04 • 10:30 AM</p>
+                    </div>
+                    <button class="btn-sm gold">Reschedule</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-view" id="history">
+            <div class="view-header">
+                <h2>Medical <span>History</span></h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="year">2025</span>
+                    <p>Initial Genomic Baseline Established</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="year">2024</span>
+                    <p>Enrolled in Phase 1 Synthetic Bio-Program</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+
+
+    <script src="./script.js"></script>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.content-view');
+    const sidebar = document.getElementById('sidebar');
+    const mobileToggle = document.getElementById('mobile-toggle');
+
+    // 1. Same-Page Navigation Logic
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = link.getAttribute('data-target');
+
+            // Toggle Classes
+            navLinks.forEach(l => l.classList.remove('active'));
+            sections.forEach(s => s.classList.remove('active'));
+
+            link.classList.add('active');
+            document.getElementById(target).classList.add('active');
+
+            // Close Mobile Menu if open
+            sidebar.classList.remove('mobile-active');
+        });
+    });
+
+    // 2. Hamburger Logic
+    if(mobileToggle) {
+        mobileToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('mobile-active');
+        });
+    }
+});
+
+    </script>
+
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        AOS.init({
+            duration: 900,
+            easing: 'ease-in-out',
+            once: true,
+        });
+
+        // data-aos="fade-up"
+        // fade-up, fade-down, fade-left, fade-right, zoom-in,	slide-up, flip-left	
+
+    </script>
+
+
+
+</body>
+
+</html>

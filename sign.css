@@ -1,0 +1,142 @@
+:root {
+    --primary-blue: #7e22ce;
+    --primary-gradient: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);
+    --bg-dark: #1a1a1a;
+    --text-muted: #6b7280;
+    --input-bg: #f9fafb;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-dark); /* Dark background like your image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.auth-wrapper {
+    width: 100%;
+    max-width: 650px;
+    padding: 20px;
+}
+
+.auth-container {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.logo-circle {
+    width: 64px;
+    height: 64px;
+    background: var(--primary-gradient);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 24px;
+    color: white;
+    font-size: 32px;
+}
+
+h2 {
+    color: #1e1b4b;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    margin-bottom: 32px;
+}
+
+.input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.input-field {
+    position: relative;
+    background: var(--input-bg);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    border: 1px solid #e5e7eb;
+}
+
+.input-field i {
+    color: var(--text-muted);
+    font-size: 20px;
+}
+
+.input-field input, .input-field select {
+    background: transparent;
+    border: none;
+    padding: 14px 10px;
+    width: 100%;
+    outline: none;
+    font-size: 14px;
+}
+
+.toggle-password {
+    cursor: pointer;
+}
+
+.btn-auth {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: var(--primary-gradient);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: opacity 0.3s;
+}
+
+.btn-auth:hover {
+    opacity: 0.9;
+}
+
+.switch-text {
+    margin-top: 24px;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.switch-text a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.forgot-link {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.forgot-link a {
+    font-size: 13px;
+    color: var(--primary-blue);
+    text-decoration: none;
+}
