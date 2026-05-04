@@ -129,15 +129,17 @@
     <!-- JS -->
     <script>
 
-        // Get email from localStorage
-        const email = localStorage.getItem("userEmail");
+        document.addEventListener("DOMContentLoaded", function () {
 
-        // Display in UI
-        if (email) {
-            document.getElementById("userEmail").textContent = email;
-        } else {
-            document.getElementById("userEmail").textContent = "Guest";
-        }
+            const email = localStorage.getItem("userEmail");
+
+            if (email) {
+                document.getElementById("userEmail").textContent = email;
+            } else {
+                document.getElementById("userEmail").textContent = "Guest";
+            }
+
+        });
 
 
 

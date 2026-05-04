@@ -14,6 +14,7 @@
     --dna-helix-gold: #e9c46a;
 
     --bg-main: #ffffff;
+    /* --bg-main:  rgb(142, 181, 118); */
     --bg-subtle: #f8faf9;
     --text-main: #1a1c1a;
     --text-muted: #5c635e;
@@ -22,6 +23,10 @@
     --warning: #ffb703;
     --error: #bc4749;
 }
+
+
+
+
 
 
 
@@ -181,7 +186,7 @@ h2 {
 }
 
 .main-header {
-    background-color: var(--bg-main);
+    background-color: var(--primary-light);
     border-bottom: 1px solid #eee;
     position: sticky;
     top: 0;
@@ -223,7 +228,7 @@ h2 {
 
 .nav-links a:not(.btn) {
     font-weight: 500;
-    color: var(--text-main);
+    color: var(--bg-subtle);
     font-size: 0.95rem;
 }
 
@@ -255,7 +260,7 @@ h2 {
         left: -100%;
         top: 70px;
         flex-direction: column;
-        background-color: var(--bg-main);
+        background-color: var(--primary-light);
         width: 100%;
         text-align: center;
         transition: 0.4s;

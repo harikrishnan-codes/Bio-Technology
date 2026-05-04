@@ -25,7 +25,7 @@
     <header class="main-header">
         <nav class="navbar">
             <a href="about.html" class="logo">
-                <img src="./assets/green.webp" alt="logo" width="150px">
+                <img src="./assets/white.webp" alt="logo" width="150px">
             </a>
 
             <ul class="nav-links">
@@ -54,37 +54,53 @@
 
 
         <section class="about-hero">
+            <!-- Decorative high-end background elements -->
             <div class="hero-grid-pattern"></div>
+            <div class="ambient-glow"></div>
+
             <div class="container">
                 <div class="about-hero-layout">
-                    <div class="about-hero-content animated-card">
-                        <span class="hero-tag">Our Purpose</span>
-                        <h1>Architecting the <br><span>Future of Life.</span></h1>
+                    <!-- Content Side -->
+                    <div class="about-hero-content animated-card" data-aos="fade-right">
+                        <div class="content-glass-backdrop"></div>
+                        <span class="hero-tag">OUR PURPOSE</span>
+                        <h1>Architecting the <br><span class="gold-text">Future of Life.</span></h1>
                         <p>We believe that the greatest challenges of humanity—disease, aging, and environmental
                             decay—can be solved by understanding the fundamental code of nature itself.</p>
+
                         <div class="about-stats-row">
                             <div class="mini-stat">
-                                <strong>2014</strong>
-                                <span>Est. Year</span>
+                                <div class="stat-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                                <div class="stat-meta">
+                                    <strong>2014</strong>
+                                    <span>Est. Year</span>
+                                </div>
                             </div>
                             <div class="mini-stat">
-                                <strong>450+</strong>
-                                <span>Scientists</span>
+                                <div class="stat-icon"><i class="fa-solid fa-microscope"></i></div>
+                                <div class="stat-meta">
+                                    <strong>450+</strong>
+                                    <span>Scientists</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="about-hero-visual animated-card">
+                    <!-- Visual Side: Molecular Orbit -->
+                    <div class="about-hero-visual animated-card" data-aos="zoom-in">
                         <div class="abstract-lab-shape">
-                            <div class="inner-circle"></div>
-                            <div class="orbiting-dot"></div>
+                            <div class="inner-circle">
+                                <i class="fa-solid fa-dna"></i>
+                            </div>
+                            <div class="orbit-ring"></div>
+                            <div class="orbiting-dot dot-1"></div>
+                            <div class="orbiting-dot dot-2"></div>
+                            <div class="orbiting-dot dot-3"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
-
 
 
 
@@ -93,92 +109,67 @@
 
 
         <section class="value-section">
+            <!-- Decorative Pulse Background -->
+            <div class="value-pulse-bg"></div>
 
             <div class="value-container">
-
-                <div class="value-content">
-
+                <div class="value-content" data-aos="fade-right">
                     <span class="impact-eyebrow">OUR VALUE</span>
-
-                    <h2>Where technology meets<br>business.</h2>
-
+                    <h2>Where technology meets<br><span class="gold-text">business.</span></h2>
                     <p class="value-desc">
-                        We combine scientific innovation with real-world applications
-                        to create sustainable biotechnology solutions for industries
-                        and communities worldwide.
+                        We combine scientific innovation with real-world applications to create sustainable
+                        biotechnology solutions for industries and communities worldwide.
                     </p>
 
-
                     <div class="value-items">
-
-                        <div class="value-item">
-
-                            <i class="fa-solid fa-lightbulb"></i>
-
-                            <div>
+                        <!-- Vision -->
+                        <div class="value-item" style="--item-delay: 0.1s">
+                            <div class="value-icon-box">
+                                <i class="fa-solid fa-lightbulb"></i>
+                            </div>
+                            <div class="value-text">
                                 <h3>Vision</h3>
-
-                                <p>
-                                    To pioneer breakthroughs in biotechnology that
-                                    enhance human health, environmental sustainability,
-                                    and global scientific advancement.
-                                </p>
-
+                                <p>To pioneer breakthroughs in biotechnology that enhance human health and global
+                                    scientific advancement.</p>
                             </div>
-
                         </div>
 
-
-                        <div class="value-item">
-
-                            <i class="fa-solid fa-arrows-rotate"></i>
-
-                            <div>
+                        <!-- Mission -->
+                        <div class="value-item" style="--item-delay: 0.2s">
+                            <div class="value-icon-box">
+                                <i class="fa-solid fa-arrows-rotate"></i>
+                            </div>
+                            <div class="value-text">
                                 <h3>Mission</h3>
-
-                                <p>
-                                    Our mission is to transform cutting-edge research
-                                    into practical bio-solutions that empower industries
-                                    and support a sustainable future.
-                                </p>
-
+                                <p>Transforming cutting-edge research into practical bio-solutions that empower
+                                    sustainable industries.</p>
                             </div>
-
                         </div>
 
-
-                        <div class="value-item">
-
-                            <i class="fa-regular fa-bookmark"></i>
-
-                            <div>
+                        <!-- Motto -->
+                        <div class="value-item" style="--item-delay: 0.3s">
+                            <div class="value-icon-box">
+                                <i class="fa-regular fa-bookmark"></i>
+                            </div>
+                            <div class="value-text">
                                 <h3>Motto</h3>
-
-                                <p>
-                                    Innovation through science, sustainability through
-                                    technology, and impact through collaboration.
-                                </p>
-
+                                <p>Innovation through science, sustainability through technology, and impact through
+                                    collaboration.</p>
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
 
-
-                <div class="value-image">
-
-                    <img src="./assets/vision.webp" alt="engineer">
-
+                <div class="value-image-wrapper" data-aos="zoom-in">
+                    <div class="image-border-decoration"></div>
+                    <img src="./assets/vision.webp" alt="engineer" class="main-value-img">
+                    <div class="floating-badge">
+                        <i class="fa-solid fa-microscope"></i>
+                        <span>Precision Engineering</span>
+                    </div>
                 </div>
-
             </div>
-
         </section>
-
-
 
 
 
@@ -189,7 +180,7 @@
             <div class="container">
                 <div class="section-header center">
                     <span class="hero-tag">The BioTech Odyssey</span>
-                    <h2>Our Path of <span>Discovery</span></h2>
+                    <h2>Our Path of <span class="gold-text">Discovery</span></h2>
                     <p>Tracing the evolution of our laboratory from a singular vision to a global standard in molecular
                         engineering.</p>
                 </div>
@@ -248,56 +239,79 @@
 
 
 
-        <section class="values-section">
-            <div class="container">
-                <div class="section-header center">
-                    <span class="hero-tag">The BioTech Charter</span>
-                    <h2>Principles of <span>Scientific Integrity</span></h2>
-                    <p>Our research is governed by a strict ethical framework designed to ensure that innovation never
-                        outpaces human safety.</p>
+       <section class="values-section">
+    <!-- Decorative DNA background overlay -->
+    <div class="bio-mesh-overlay"></div>
+    
+    <div class="container">
+        <div class="section-header-container">
+    <div class="section-header center" data-aos="fade-down">
+        <span class="hero-tag">The BioTech Charter</span>
+        <h2>Principles of <span class="gold-text">Scientific Integrity</span></h2>
+        <div class="header-divider"></div>
+        <p>Our research is governed by a strict ethical framework designed to ensure that innovation never outpaces human safety.</p>
+    </div>
+</div>
+
+        <div class="values-grid">
+            <!-- Principle 01 -->
+            <div class="value-card glass-tile" data-aos="fade-up" style="--card-i: 1;">
+                <div class="card-bg-glow"></div>
+                <div class="card-header-flex">
+                    <div class="icon-orb"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <span class="pillar-label">Ethics</span>
                 </div>
-
-                <div class="values-grid">
-                    <div class="value-card animated-card">
-                        <div class="value-icon">
-                            <span class="dot"></span>
-                        </div>
-                        <h3>Ethical Transparency</h3>
-                        <p>Maintaining an open-source dialogue with global health authorities regarding every
-                            breakthrough in genetic modification.</p>
-                    </div>
-
-                    <div class="value-card animated-card">
-                        <div class="value-icon">
-                            <span class="dot"></span>
-                        </div>
-                        <h3>Molecular Precision</h3>
-                        <p>Rejecting the "good enough" standard. We operate with a zero-tolerance policy for data margin
-                            errors in sequencing.</p>
-                    </div>
-
-                    <div class="value-card animated-card">
-                        <div class="value-icon">
-                            <span class="dot"></span>
-                        </div>
-                        <h3>Global Equity</h3>
-                        <p>Ensuring that regenerative medicine remains accessible to all populations, regardless of
-                            economic infrastructure.</p>
-                    </div>
-
-                    <div class="value-card animated-card">
-                        <div class="value-icon">
-                            <span class="dot"></span>
-                        </div>
-                        <h3>Bio-Sustainability</h3>
-                        <p>Every synthetic compound we create is designed with a lifecycle that preserves the natural
-                            ecological balance.</p>
-                    </div>
+                <h3>Ethical Transparency</h3>
+                <p>Maintaining an open-source dialogue with global health authorities regarding every breakthrough in genetic modification.</p>
+                <div class="card-footer">
+                    <span class="status-indicator">Verified Protocol</span>
                 </div>
             </div>
-        </section>
 
+            <!-- Principle 02 -->
+            <div class="value-card glass-tile" data-aos="fade-up" style="--card-i: 2;">
+                <div class="card-bg-glow"></div>
+                <div class="card-header-flex">
+                    <div class="icon-orb"><i class="fa-solid fa-microscope"></i></div>
+                    <span class="pillar-label">Accuracy</span>
+                </div>
+                <h3>Molecular Precision</h3>
+                <p>Rejecting the "good enough" standard. We operate with a zero-tolerance policy for data margin errors in sequencing.</p>
+                <div class="card-footer">
+                    <span class="status-indicator">99.9% Accuracy</span>
+                </div>
+            </div>
 
+            <!-- Principle 03 -->
+            <div class="value-card glass-tile" data-aos="fade-up" style="--card-i: 3;">
+                <div class="card-bg-glow"></div>
+                <div class="card-header-flex">
+                    <div class="icon-orb"><i class="fa-solid fa-hand-holding-medical"></i></div>
+                    <span class="pillar-label">Equity</span>
+                </div>
+                <h3>Global Equity</h3>
+                <p>Ensuring that regenerative medicine remains accessible to all populations, regardless of economic infrastructure.</p>
+                <div class="card-footer">
+                    <span class="status-indicator">Global Access</span>
+                </div>
+            </div>
+
+            <!-- Principle 04 -->
+            <div class="value-card glass-tile" data-aos="fade-up" style="--card-i: 4;">
+                <div class="card-bg-glow"></div>
+                <div class="card-header-flex">
+                    <div class="icon-orb"><i class="fa-solid fa-leaf"></i></div>
+                    <span class="pillar-label">Ecology</span>
+                </div>
+                <h3>Bio-Sustainability</h3>
+                <p>Every synthetic compound we create is designed with a lifecycle that preserves the natural ecological balance.</p>
+                <div class="card-footer">
+                    <span class="status-indicator">Carbon Neutral</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 

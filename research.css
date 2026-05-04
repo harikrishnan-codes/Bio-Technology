@@ -24,7 +24,81 @@
     text-align: center;
 }
 
+/* --- Pipeline Section Header Styling --- */
+.section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the content horizontally */
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 0 20px;
+}
 
+/* The small "Status Report" tag */
+.section-header .hero-tag {
+    display: inline-block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--dna-helix-gold); /* Using your DNA Gold root */
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+/* Main H2 Heading */
+.section-header h2 {
+    font-size: clamp(2.2rem, 5vw, 3.5rem); /* Responsive scaling */
+    color: var(--primary-dark); /* Using your Midnight Green root */
+    line-height: 1.1;
+    margin-bottom: 25px;
+    font-weight: 800;
+}
+
+/* Targeting the specific 'Pipeline' span */
+.section-header h2 .gold-text {
+    color: var(--dna-helix-gold);
+    background: linear-gradient(135deg, var(--dna-helix-gold), #b38b2d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* Scientific Divider Line */
+.section-header::after {
+    content: '';
+    width: 50px;
+    height: 3px;
+    background: var(--primary-bio-green);
+    border-radius: 50px;
+    margin-bottom: 25px;
+}
+
+/* Paragraph Description */
+.section-header p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    max-width: 600px; /* Keeps text from stretching too wide for better readability */
+    margin: 0 auto;
+}
+
+/* --- 768px Media Query --- */
+@media (max-width: 768px) {
+    .section-header {
+        margin-bottom: 40px;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .section-header p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+}
 
 
 
@@ -172,104 +246,145 @@
 
 
 
-
+/* --- Section Base --- */
 .pipeline-section {
     padding: 120px 0;
-    background-color: var(--bg-main);
+    background: var(--bg-main);
 }
 
-.pipeline-section .section-header {
-    text-align: center;
-}
+.gold-text { color: var(--dna-helix-gold); }
 
-.pipeline-section .section-header h2 {
-    border: none;
-}
-
-.pipeline-section .section-header h2 span {
-    color: var(--primary-bio-green);
-}
-
-.pipeline-table {
+/* --- Ledger Structure --- */
+.pipeline-ledger {
     margin-top: 60px;
-    border: 1px solid var(--primary-light);
+    background: #fff;
+    border-radius: 30px;
+    padding: 20px;
+    box-shadow: 0 30px 60px rgba(49, 99, 20, 0.05);
+    border: 1px solid rgba(49, 99, 20, 0.05);
 }
 
 .pipeline-row {
     display: grid;
     grid-template-columns: 1.5fr 1.5fr 2fr;
-    padding: 25px 40px;
     align-items: center;
-    border-bottom: 1px solid #eeeeee;
-    background: #ffffff;
-    transition: background 0.3s ease;
+    padding: 25px 35px;
+    border-radius: 20px;
+    transition: all 0.4s ease;
 }
 
-.pipeline-row:last-child {
-    border-bottom: none;
-}
-
+/* Header Styling */
 .pipeline-row.header {
-    background-color: var(--primary-light);
-    font-weight: 700;
+    background: var(--primary-dark);
+    color: #fff;
+    font-weight: 800;
     text-transform: uppercase;
+    letter-spacing: 2px;
     font-size: 0.8rem;
-    letter-spacing: 1px;
-    color: var(--bg-main);
+    margin-bottom: 15px;
 }
 
-.pipeline-row strong {
-    display: block;
-    font-size: 1.1rem;
-    color: var(--text-main);
+/* Animated Row Hover */
+.animated-row:not(.header) {
+    border-bottom: 1px solid rgba(0,0,0,0.03);
+    margin-bottom: 5px;
 }
 
-.pipeline-row span {
+.animated-row:hover {
+    background: var(--bg-subtle);
+    transform: scale(1.01);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+}
+
+/* Candidate Column */
+.candidate-id {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--primary-dark);
+}
+
+.candidate-type {
     font-size: 0.85rem;
     color: var(--text-muted);
+    font-weight: 600;
 }
 
+/* Discipline Tag */
+.discipline-tag {
+    background: rgba(49, 99, 20, 0.05);
+    color: var(--primary-bio-green);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border: 1px solid rgba(49, 99, 20, 0.1);
+}
+
+/* --- Phase Tracker UI --- */
 .phase-tracker {
     display: flex;
-    gap: 10px;
+    gap: 12px;
+    position: relative;
 }
 
 .step {
     flex: 1;
-    padding: 8px 0;
     text-align: center;
-    background-color: #f0f0f0;
+    padding: 8px 0;
     font-size: 0.75rem;
-    font-weight: 700;
-    color: #bbbbbb;
-    border-radius: 4px;
-    transition: all 0.4s ease;
+    font-weight: 800;
+    color: var(--text-muted);
+    background: #f0f3f1;
+    border-radius: 8px;
+    position: relative;
+    border: 1px solid transparent;
+    transition: 0.3s;
 }
 
 .step.active {
-    background-color: var(--primary-bio-green);
-    color: #ffffff;
+    background: var(--primary-bio-green);
+    color: #fff;
 }
 
-.pipeline-row:hover {
-    background-color: var(--bg-subtle);
+.step.completed {
+    background: var(--primary-light);
 }
 
+/* Pulse animation for the current active phase */
+.step.pulse {
+    animation: phaseGlow 2s infinite;
+    border-color: var(--dna-helix-gold);
+}
+
+@keyframes phaseGlow {
+    0% { box-shadow: 0 0 0 0 rgba(75, 140, 35, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(75, 140, 35, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(75, 140, 35, 0); }
+}
+
+/* --- 768px Media Query --- */
 @media (max-width: 768px) {
+    .pipeline-row.header {
+        display: none; /* Hide header on mobile for card-style layout */
+    }
+
     .pipeline-row {
         grid-template-columns: 1fr;
         gap: 20px;
-        padding: 30px 20px;
         text-align: center;
-    }
-
-    .pipeline-row.header {
-        display: none;
+        padding: 30px 20px;
+        border: 1px solid rgba(0,0,0,0.05);
+        margin-bottom: 20px;
     }
 
     .phase-tracker {
         justify-content: center;
     }
+
+    .step {
+        padding: 10px 5px;
+    }
 }
 
 
@@ -277,120 +392,172 @@
 
 
 
-
-
+/* --- Capabilities Section Core --- */
 .capabilities-section {
     padding: 120px 0;
-    background-color: var(--primary-dark);
+    background-color: var(--primary-light);
+    position: relative;
+    overflow: hidden;
 }
 
-.capabilities-section .section-header {
-    text-align: center;
-}
-
-.capabilities-section .section-header h2 {
-    border: none;
+.capabilities-section .section-header p{
     color: var(--bg-main);
 }
 
-.capabilities-section .section-header p {
-    color: var(--bg-main);
+/* --- Animated Parallax Grid Background --- */
+.cap-bg-mesh {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(var(--primary-bio-green) 1px, transparent 1px),
+        linear-gradient(90deg, var(--primary-bio-green) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.04;
+    z-index: 0;
+    animation: meshShift 20s infinite linear;
 }
 
-.capabilities-section .section-header h2 span {
-    color: var(--dna-helix-gold);
+@keyframes meshShift {
+    from { background-position: 0 0; }
+    to { background-position: 60px 60px; }
 }
 
+/* --- Floating Bio-Pulse Colors --- */
+.cap-glow-field {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at 20% 30%, rgba(75, 140, 35, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(233, 196, 106, 0.05) 0%, transparent 40%);
+    z-index: 1;
+    animation: glowPulse 10s infinite alternate ease-in-out;
+}
+
+@keyframes glowPulse {
+    0% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+/* --- Capabilities Grid --- */
 .capabilities-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
     margin-top: 60px;
-}
-
-.cap-card {
-    position: relative;
-    background-color: #ffffff;
-    padding: 50px 40px;
-    border: 1px solid #eeeeee;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.cap-scan-effect {
-    position: absolute;
-    top: -100%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom,
-            transparent,
-            rgba(49, 99, 20, 0.05),
-            var(--primary-bio-green));
-    height: 2px;
-    opacity: 0;
-    transition: opacity 0.3s;
-    z-index: 1;
-}
-
-.cap-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--primary-bio-green);
-}
-
-.cap-card:hover .cap-scan-effect {
-    opacity: 1;
-    animation: scan-down 1.5s infinite linear;
-}
-
-@keyframes scan-down {
-    0% {
-        top: 0%;
-    }
-
-    100% {
-        top: 100%;
-    }
-}
-
-.cap-content {
     position: relative;
     z-index: 2;
 }
 
-.cap-number {
+/* --- Premium Glass Cards --- */
+.cap-card.premium-glass {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(49, 99, 20, 0.08);
+    border-radius: 40px;
+    padding: 50px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.cap-card:hover {
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateY(-15px);
+    border-color: var(--primary-bio-green);
+    box-shadow: 0 40px 80px rgba(49, 99, 20, 0.1);
+}
+
+/* --- Interactive Scanner Animation --- */
+.cap-scanner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-light), transparent);
+    opacity: 0;
+    z-index: 3;
+}
+
+.cap-card:hover .cap-scanner {
+    animation: scanLine 2.5s infinite linear;
+    opacity: 1;
+}
+
+@keyframes scanLine {
+    0% { top: 0%; }
+    100% { top: 100%; }
+}
+
+/* --- Card Content --- */
+.cap-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.cap-icon {
     width: 60px;
     height: 60px;
-    font-size:1.5rem;
+    background: var(--bg-subtle);
+    color: var(--primary-bio-green);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: 0.4s;
+}
+
+.cap-card:hover .cap-icon {
+    background: var(--primary-bio-green);
+    color: #fff;
+    transform: rotateY(180deg);
+}
+
+.cap-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
     font-weight: 800;
-    color: var(--bg-main);
-    margin-bottom: 20px;
-    letter-spacing: 2px;
-    background-color: var(--primary-dark);
-    border-radius: 100px;
-    padding: 50px;
+    color: var(--dna-helix-gold);
+    opacity: 0.3;
 }
 
 .cap-card h3 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
+    color: var(--primary-dark);
     margin-bottom: 15px;
-    color: var(--primary-light);
+    font-weight: 700;
 }
 
-.cap-card p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: var(--text-muted);
-    margin-bottom: 0;
-}
-
+/* --- 768px Media Query --- */
 @media (max-width: 768px) {
+    .capabilities-section {
+        padding: 80px 0;
+    }
+
     .capabilities-grid {
         grid-template-columns: 1fr;
+        padding: 0 15px;
+        gap: 20px;
     }
 
-    .cap-card {
+    .cap-card.premium-glass {
         padding: 40px 30px;
+        border-radius: 25px;
+    }
+
+    .cap-bg-mesh {
+        background-size: 40px 40px;
+    }
+
+    .cap-glow-field {
+        display: none; /* Optimized for mobile performance */
     }
 }
 
@@ -399,139 +566,240 @@
 
 
 
-
-
+/* --- Publications Section Core --- */
 .publications-section {
-    padding: 120px 0;
-    background-color: var(--bg-main);
+    padding: 140px 0;
+    background: var(--bg-main);
+    position: relative;
+    overflow: hidden;
 }
 
-.publications-section .section-header {
-    text-align: center;
-}
-
-.publications-section .section-header h2 {
-    border: none;
-}
-
-.publications-section .section-header h2 span {
-    color: var(--primary-bio-green);
+.pub-watermark {
+    position: absolute;
+    top: 50%;
+    right: -5%;
+    transform: translateY(-50%) rotate(-90deg);
+    font-size: 12rem;
+    font-weight: 900;
+    color: rgba(49, 99, 20, 0.03);
+    pointer-events: none;
+    letter-spacing: 20px;
 }
 
 .pub-list {
-    margin: 60px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 60px;
 }
 
-.pub-item {
+/* --- Premium Row Design --- */
+.pub-item.premium-row {
     display: flex;
     align-items: center;
-    padding: 35px 0;
-    border-bottom: 1px solid #eeeeee;
-    transition: transform 0.3s ease;
+    background: #fff;
+    padding: 40px 50px;
+    border-radius: 30px;
+    border: 1px solid rgba(49, 99, 20, 0.06);
+    transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+    position: relative;
+}
+
+.pub-accent-line {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 0%;
+    background: var(--primary-bio-green);
+    transition: 0.4s ease;
+    border-radius: 0 4px 4px 0;
 }
 
 .pub-item:hover {
-    transform: translateX(10px);
+    transform: translateX(15px);
+    box-shadow: 0 25px 50px rgba(49, 99, 20, 0.06);
+    border-color: var(--primary-bio-green);
+}
+
+.pub-item:hover .pub-accent-line {
+    height: 60%;
+}
+
+/* --- Content Styling --- */
+.pub-main-content {
+    flex: 1;
 }
 
 .pub-meta {
-    flex: 0.8;
     display: flex;
-    flex-direction: column;
-    gap: 8px;
-    background-color: var(--primary-dark);
-    padding: 20px;
-    text-align: center;
-}
-
-.pub-meta span{
-    color: var(--bg-main);
-
+    gap: 20px;
+    margin-bottom: 15px;
+    align-items: center;
 }
 
 .pub-date {
     font-size: 0.85rem;
     color: var(--text-muted);
+    font-weight: 600;
 }
 
 .pub-tag {
+    padding: 4px 14px;
+    border-radius: 50px;
     font-size: 0.75rem;
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
-    color: var(--primary-bio-green);
     letter-spacing: 1px;
 }
 
-.pub-info {
-    flex: 2;
-    padding: 0 40px;
-}
+.tag-genomics { background: rgba(75, 140, 35, 0.1); color: var(--primary-light); }
+.tag-sustain { background: rgba(233, 196, 106, 0.1); color: #b38b2d; }
+.tag-therapy { background: rgba(0, 119, 182, 0.1); color: #0077b6; }
 
 .pub-info h3 {
-    font-size: 1.3rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    color: var(--primary-dark);
     margin-bottom: 10px;
-    line-height: 1.4;
-    color: var(--text-main);
 }
 
 .pub-info p {
-    font-size: 0.95rem;
-    margin-bottom: 0;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 800px;
 }
 
-.pub-action {
-    flex: 0.5;
-    text-align: right;
-    background-color: var(--primary-dark);
+/* --- Download Action --- */
+.pub-download-circle {
+    width: 80px;
+    height: 80px;
+    background: var(--bg-subtle);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: 0.4s;
+    border: 1px solid rgba(49, 99, 20, 0.05);
 }
 
-.pub-download {
+.pub-download-circle i {
+    font-size: 1.5rem;
+    color: var(--primary-bio-green);
+    margin-bottom: 4px;
+}
+
+.pub-download-circle span {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--text-muted);
+}
+
+.pub-item:hover .pub-download-circle {
+    background: var(--primary-bio-green);
+    transform: scale(1.1);
+}
+
+.pub-item:hover .pub-download-circle i,
+.pub-item:hover .pub-download-circle span {
+    color: #fff;
+}
+
+/* --- Premium Archive Button --- */
+.btn-archive {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    font-weight: 700;
-    color: var(--text-main);
-    padding: 10px 20px;
-    border: 1px solid #eeeeee;
-    border-radius: 4px;
-    color: var(--bg-main);
-    transition: all 0.3s ease;
+    gap: 15px;
+    padding: 18px 40px;
+    background: transparent;
+    color: var(--primary-dark);
+    border: 2px solid var(--primary-bio-green);
+    border-radius: 100px; /* Capsule shape for a modern look */
+    text-decoration: none;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
 }
 
-.pub-download:hover {
-    background-color: var(--primary-bio-green);
+/* Sliding background effect */
+.btn-archive::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-bio-green);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+
+.btn-archive span {
+    transition: color 0.4s ease;
+}
+
+.btn-archive i {
+    font-size: 1.2rem;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s ease;
+}
+
+/* --- Hover States --- */
+.btn-archive:hover {
     color: #ffffff;
     border-color: var(--primary-bio-green);
+    box-shadow: 0 15px 30px rgba(49, 99, 20, 0.2);
+    transform: translateY(-3px);
 }
 
-.pub-footer {
-    margin-top: 40px;
+.btn-archive:hover::before {
+    left: 0;
 }
 
+.btn-archive:hover i {
+    transform: translateX(10px);
+    color: var(--dna-helix-gold); /* Gold arrow highlight on hover */
+}
+
+/* --- 768px Media Query --- */
 @media (max-width: 768px) {
-    .pub-item {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 40px 0;
-    }
-
-    .pub-info {
-        padding: 20px 0;
-    }
-
-    .pub-action {
-        width: 100%;
-        text-align: left;
-    }
-
-    .pub-download {
-        width: 100%;
+    .btn-archive {
+        padding: 15px 30px;
+        font-size: 0.85rem;
+        width: auto;
         justify-content: center;
     }
 }
 
+/* --- 768px Media Query --- */
+@media (max-width: 768px) {
+    .publications-section {
+        padding: 80px 0;
+    }
 
+    .pub-item.premium-row {
+        flex-direction: column;
+        padding: 35px;
+        text-align: center;
+        gap: 30px;
+    }
 
+    .pub-meta {
+        justify-content: center;
+    }
+
+    .pub-item:hover {
+        transform: translateY(-10px);
+    }
+}
 
 
 

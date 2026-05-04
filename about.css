@@ -25,139 +25,253 @@
 }
 
 
-
+/* --- Hero Container & Backgrounds --- */
 .about-hero {
     position: relative;
-    padding: 140px 0 100px;
+    padding: 160px 0 100px;
     background-color: var(--bg-main);
+    /* background-color: var(--primary-light); */
     overflow: hidden;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
 }
 
 .hero-grid-pattern {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(var(--primary-bio-green) 0.5px, transparent 0.5px);
-    background-size: 30px 30px;
-    opacity: 0.05;
-    pointer-events: none;
+    inset: 0;
+    background-image: linear-gradient(rgba(49, 99, 20, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(49, 99, 20, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
 }
 
+.ambient-glow {
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(75, 140, 35, 0.07) 0%, transparent 70%);
+    filter: blur(40px);
+    z-index: 2;
+}
+
+/* --- Layout --- */
 .about-hero-layout {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
     gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 10;
 }
 
+/* --- Content Side: Glassmorphism --- */
 .about-hero-content {
-    flex: 1.2;
+    position: relative;
+    padding: 50px;
+    border-radius: 40px;
+    border: 1px solid rgba(49, 99, 20, 0.05);
+}
+
+.content-glass-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+    border-radius: 40px;
+    z-index: -1;
+}
+
+.gold-text {
+    color: var(--dna-helix-gold);
+    background: linear-gradient(135deg, var(--dna-helix-gold), #b38b2d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .about-hero-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.1;
+    margin: 20px 0;
 }
 
-.about-hero-content h1 span {
-    color: var(--primary-bio-green);
+.about-hero-content p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 40px;
 }
 
+/* --- Mini Stats Row --- */
 .about-stats-row {
     display: flex;
     gap: 40px;
-    margin-top: 40px;
-    padding-top: 30px;
-    border-top: 1px solid #eeeeee;
 }
 
-.mini-stat strong {
-    display: block;
-    font-size: 1.5rem;
-    color: var(--primary-bio-green);
-    margin-bottom: 5px;
-}
-
-.mini-stat span {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--text-muted);
-}
-
-.about-hero-visual {
-    flex: 1;
+.mini-stat {
     display: flex;
-    justify-content: center;
-    position: relative;
+    align-items: center;
+    gap: 15px;
 }
 
-.abstract-lab-shape {
-    width: 300px;
-    height: 300px;
-    border: 1px solid #eeeeee;
-    border-radius: 50%;
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-bio-green);
+    color: #fff;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 10px 20px rgba(49, 99, 20, 0.15);
+}
+
+.stat-meta strong {
+    display: block;
+    font-size: 1.4rem;
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--primary-dark);
+}
+
+.stat-meta span {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    font-weight: 700;
+}
+
+/* --- Visual Side: Molecular Orbit Animation --- */
+.abstract-lab-shape {
     position: relative;
+    width: 450px;
+    height: 450px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .inner-circle {
-    width: 200px;
-    height: 200px;
-    background-color: var(--bg-subtle);
-    border: 2px solid var(--primary-bio-green);
+    width: 120px;
+    height: 120px;
+    background: #fff;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: var(--primary-bio-green);
+    box-shadow: 0 20px 50px rgba(49, 99, 20, 0.1);
+    z-index: 5;
+    animation: morphCircle 8s infinite ease-in-out;
+}
+
+.orbit-ring {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border: 1px dashed var(--dna-helix-gold);
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: spin 20s linear infinite;
 }
 
 .orbiting-dot {
     position: absolute;
     width: 15px;
     height: 15px;
-    background-color: var(--primary-bio-green);
+    background: var(--primary-light);
     border-radius: 50%;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    offset-path: border-box;
-    animation: rotate-molecule 10s infinite linear;
+    box-shadow: 0 0 15px var(--primary-light);
 }
 
-@keyframes rotate-molecule {
+.dot-1 {
+    offset-path: path('M 160,0 A 160,160 0 1,1 160,320 160,160 0 1,1 160,0');
+    animation: orbit 6s linear infinite;
+}
+
+.dot-2 {
+    width: 10px;
+    background: var(--dna-helix-gold);
+    animation: orbit 10s linear infinite reverse;
+}
+
+/* --- Keyframes --- */
+@keyframes morphCircle {
+
+    0%,
+    100% {
+        border-radius: 50%;
+        transform: scale(1);
+    }
+
+    50% {
+        border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes orbit {
     from {
-        transform: rotate(0deg) translateX(150px) rotate(0deg);
+        offset-distance: 0%;
     }
 
     to {
-        transform: rotate(360deg) translateX(150px) rotate(-360deg);
+        offset-distance: 100%;
     }
 }
 
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* --- 768px Media Query --- */
 @media (max-width: 768px) {
     .about-hero {
-        padding: 100px 0 60px;
+        padding: 120px 0 60px;
         text-align: center;
     }
 
     .about-hero-layout {
-        flex-direction: column;
+        grid-template-columns: 1fr;
+        gap: 50px;
     }
 
-    .about-hero-content h1 {
-        font-size: 2.5rem;
+    .about-hero-content {
+        padding: 30px 20px;
+        order: 2;
     }
 
     .about-stats-row {
         justify-content: center;
+        gap: 25px;
+    }
+
+    .about-hero-visual {
+        order: 1;
+        width: 100%;
     }
 
     .abstract-lab-shape {
-        width: 200px;
-        height: 200px;
-        margin-top: 40px;
+        width: 300px;
+        height: 300px;
+    }
+
+    .inner-circle {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+    }
+
+    .orbit-ring {
+        width: 220px;
+        height: 220px;
     }
 }
 
@@ -168,50 +282,63 @@
 
 
 
-
-
-
+/* --- Value Section Core Styles --- */
 .value-section {
-    width: 100%;
+    padding: 140px 0;
+    background-color: var(--primary-dark); /* Deep bio-green background */
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+}
+
+
+
+/* Moving Background Glow */
+.value-pulse-bg {
+    position: absolute;
+    top: -20%;
+    left: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(75, 140, 35, 0.15) 0%, transparent 70%);
+    filter: blur(60px);
+    animation: pulseMove 12s infinite alternate ease-in-out;
+}
+
+@keyframes pulseMove {
+    from { transform: translate(0, 0); }
+    to { transform: translate(20%, 30%); }
 }
 
 .value-container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 650px;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+    padding: 0 25px;
+    position: relative;
+    z-index: 5;
 }
 
-.value-content {
-    background: var(--primary-dark);
-    padding: 80px 70px;
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.value-tag {
-    color: var(--dna-helix-gold);
-    font-size: 14px;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-    font-weight: 600;
-}
-
+/* --- Content Styling --- */
 .value-content h2 {
-    color: var(--dna-helix-gold);
-    font-size: 42px;
-    border: none;
-    padding: 0;
-    margin-bottom: 20px;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    margin-bottom: 25px;
+    color: #fff;
 }
 
 .value-desc {
-    color: #d1d9de;
-    max-width: 500px;
-    margin-bottom: 40px;
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 50px;
+    max-width: 550px;
+    line-height: 1.8;
 }
 
+/* --- Item List Design --- */
 .value-items {
     display: flex;
     flex-direction: column;
@@ -221,53 +348,115 @@
 .value-item {
     display: flex;
     gap: 20px;
-    align-items: flex-start;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
 }
 
-.value-item i {
-    font-size: 30px;
-    color: var(--dna-helix-gold);
-    margin-top: 5px;
+.value-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(15px);
+    border-color: var(--primary-light);
 }
 
-.value-item h3 {
+.value-icon-box {
+    width: 60px;
+    height: 60px;
+    background: var(--primary-bio-green);
+    color: #fff;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.value-text h3 {
+    font-size: 1.3rem;
     color: var(--dna-helix-gold);
     margin-bottom: 8px;
-    font-size: 22px;
 }
 
-.value-item p {
-    color: #c7d1d6;
-    margin: 0;
+.value-text p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
 }
 
-.value-image img {
+/* --- Image & Badge --- */
+.value-image-wrapper {
+    position: relative;
+}
+
+.main-value-img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    border-radius: 40px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
 }
 
+.image-border-decoration {
+    position: absolute;
+    inset: -15px;
+    border: 2px solid var(--dna-helix-gold);
+    border-radius: 50px;
+    opacity: 0.2;
+    z-index: -1;
+}
 
-@media(max-width:900px) {
+.floating-badge {
+    position: absolute;
+    bottom: 30px;
+    right: -20px;
+    background: #fff;
+    color: var(--primary-dark);
+    padding: 20px 30px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    animation: floatBadge 4s infinite ease-in-out;
+}
+
+@keyframes floatBadge {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* --- 768px Media Query --- */
+@media (max-width: 768px) {
+    .value-section {
+        padding: 80px 0;
+    }
 
     .value-container {
         grid-template-columns: 1fr;
+        gap: 60px;
+        text-align: center;
     }
 
-    .value-image {
-        height: 400px;
+    .value-desc {
+        margin: 0 auto 40px;
     }
 
-    .value-content {
-        padding: 60px 30px;
+    .value-item {
+        text-align: left;
+        padding: 20px;
     }
 
-    .value-content h2 {
-        font-size: 32px;
+    .floating-badge {
+        right: 20px;
+        bottom: -20px;
+        padding: 15px 20px;
+        font-size: 0.9rem;
     }
-
 }
-
 
 
 
@@ -282,15 +471,15 @@
     position: relative;
 }
 
-.timeline-section .section-header{
+.timeline-section .section-header {
     text-align: center;
 }
 
-.timeline-section .section-header h2{
+.timeline-section .section-header h2 {
     border: none;
 }
 
-.timeline-section .section-header h2 span{
+.timeline-section .section-header h2 span {
     color: var(--primary-bio-green);
 }
 
@@ -407,94 +596,148 @@
 
 
 
-
-
-
-
+/* --- Section Base & Mesh Background --- */
 .values-section {
     padding: 120px 0;
-    background-color: var(--bg-main);
+    background-color: var(--primary-dark); /* Deep bio-green background */
+    position: relative;
+    overflow: hidden;
+    color: #fff;
 }
 
-.values-section .section-header{
-    text-align: center;
+
+
+.bio-mesh-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(var(--primary-bio-green) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.15;
+    z-index: 1;
 }
 
-.values-section .section-header h2{
-    border: none;
+.gold-text {
+    color: var(--dna-helix-gold);
 }
 
-.values-section .section-header h2 span{
-    color: var(--primary-bio-green);
-}
-
+/* --- Bento Grid Layout --- */
 .values-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
-    margin-top: 60px;
+    position: relative;
+    z-index: 5;
 }
 
-.value-card {
-    padding: 50px;
-    background-color: var(--bg-subtle);
-    border: 1px solid #eeeeee;
-    transition: all 0.4s ease;
+/* --- Premium Glass Tile --- */
+.value-card.glass-tile {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 35px;
+    padding: 45px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.value-card:hover {
-    background-color: #ffffff;
-    border-color: var(--primary-bio-green);
-    transform: translateY(-5px);
-    border-bottom: 3px solid var(--primary-dark);
+/* Internal Glow Effect */
+.card-bg-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(75, 140, 35, 0.1) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
-.value-icon {
-    width: 40px;
-    height: 40px;
-    border: 2px solid var(--primary-bio-green);
+.value-card.glass-tile:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: var(--primary-light);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.value-card.glass-tile:hover .card-bg-glow {
+    opacity: 1;
+}
+
+/* --- Card Content Elements --- */
+.card-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.icon-orb {
+    width: 60px;
+    height: 60px;
+    background: var(--primary-bio-green);
+    color: #fff;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 25px;
+    font-size: 1.5rem;
+    box-shadow: 0 0 20px rgba(49, 99, 20, 0.4);
 }
 
-.value-icon .dot {
-    width: 8px;
-    height: 8px;
-    background-color: var(--primary-bio-green);
-    border-radius: 50%;
+.pillar-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--dna-helix-gold);
+    opacity: 0.8;
 }
 
 .value-card h3 {
-    font-size: 1.5rem;
-    color: var(--text-main);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.6rem;
+    color: #fff;
     margin-bottom: 15px;
 }
 
 .value-card p {
-    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
     line-height: 1.7;
-    color: var(--text-muted);
-    margin-bottom: 0;
+    margin-bottom: 30px;
 }
 
+.status-indicator {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--primary-light);
+    border: 1px solid rgba(75, 140, 35, 0.3);
+    padding: 5px 12px;
+    border-radius: 50px;
+    background: rgba(75, 140, 35, 0.05);
+}
+
+/* --- 768px Media Query --- */
 @media (max-width: 768px) {
+    .values-section {
+        padding: 80px 0;
+    }
+
     .values-grid {
         grid-template-columns: 1fr;
+        padding: 0 15px;
+        gap: 20px;
     }
 
-    .value-card {
-        padding: 30px;
+    .value-card.glass-tile {
+        padding: 35px 25px;
+        border-radius: 25px;
     }
 
-    .values-section {
-        padding: 70px 0;
+    .value-card.glass-tile:hover {
+        transform: translateY(-5px); /* Reduced movement for touch screens */
     }
 }
-
-
 
 
 
@@ -612,14 +855,14 @@
 
 
 
-.faq-section .section-header{
+.faq-section .section-header {
     text-align: center;
 }
 
-.faq-section .section-header h2{
+.faq-section .section-header h2 {
     border: none;
 }
 
-.faq-section .section-header h2 span{
+.faq-section .section-header h2 span {
     color: var(--primary-bio-green);
 }
